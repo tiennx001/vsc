@@ -1,0 +1,198 @@
+/**
+ * Theme Name: YOOtheme
+ * Theme URI: https://yootheme.com
+ * Description: A powerful, flexible and elegant website builder that allows you to create complex pages within minutes and customize every aspect of the theme.
+ * Version: 1.10.6
+ * Author: YOOtheme
+ * Author URI: https://yootheme.com
+ */
+ol, ul {
+    padding: 0;
+    list-style: none;
+}
+
+.search-panel {
+    position: relative;
+    background: #ebebed;
+    text-align: center;
+    padding: 20px;
+}
+
+.search-panel .uk-search-default {
+    width: 35% !important;
+    margin-right: 50px !important;
+}
+
+.search-panel .uk-search .uk-search-icon {
+    left: auto !important;
+    right: 0 !important;
+}
+
+.search-panel .uk-search .uk-search-input {
+    padding-left: 5px !important;
+    padding-right: 42px !important;
+    background: #fff !important;
+}
+
+.cart-container {
+    display: inline-block;
+    padding: 0 40px;
+    border-left: solid 1px;
+    position: absolute;
+    top: 24px;
+}
+
+.shopping-cart {
+    line-height: 34px;
+}
+
+.shopping-cart i, .shopping-cart span {
+    float: left;
+    margin-left: 5px;
+}
+
+.uk-grid>.uk-grid-margin {
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    padding: 5px;
+}
+
+.uk-grid>.uk-grid-margin>.uk-panel {
+    padding: 0 5px;
+}
+
+.uk-grid>.uk-grid-margin>.uk-panel ul li a {
+    font-size: 13px !important;
+}
+
+.uk-grid>.uk-grid-margin>.uk-panel ul li:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f0da";
+    margin-right: 5px;
+}
+
+.uk-grid>.uk-grid-margin>.uk-panel ul li.current-cat a {
+    color: #c71c22;
+}
+
+.uk-grid>.uk-grid-margin>.uk-panel:before {
+    content: 'Danh mục';
+    border-bottom: 4px solid #c9212a;
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    min-width: 78px;
+    padding-bottom: 5px;
+    padding-left: 0;
+    text-transform: uppercase;
+}
+
+.sidesupports {
+    background: none repeat scroll 0 0 #c71c22;
+    border: 1px solid #d4d4d4;
+    margin-top: 15px;
+}
+
+.supports-panel {
+    width: 18%;
+    position: absolute;
+    left: 3%;
+}
+
+.sidebox {
+    margin-bottom: 25px;
+}
+
+.sidebox > h3 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 15px 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.row {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.supports_tel {
+    background-color: #fff;
+    color: #333;
+    font-size: 13px;
+    margin-bottom: 0;
+    padding: 10px 5px;
+    text-align: center;
+    text-transform: none;
+}
+
+.sidesupports a {
+    display: block;
+}
+
+.supports_tel span {
+    color: #c71c22;
+    font-family: "Roboto", "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+.side_item {
+    padding-bottom: 10px;
+}
+
+.tm-sidebar {
+    margin-bottom: 400px !important;
+}
+
+@media (max-width: 767px) {
+    .tm-toolbar {
+        height: 55px !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .search-panel .uk-search-default {
+        margin-right: 20px !important;
+    }
+
+    .cart-container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 959px) {
+    .uk-grid {
+        margin-left: 0 !important;
+    }
+
+    .supports-panel {
+        position: relative;
+        width: auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .search-panel {
+        text-align: left;
+    }
+}
+
+@media (max-width: 485px) {
+    .search-panel .uk-search-default {
+        width: 180px !important;
+    }
+}
+
+@media (max-width: 355px) {
+    .search-panel .uk-search-default {
+        width: 145px !important;
+    }
+}
