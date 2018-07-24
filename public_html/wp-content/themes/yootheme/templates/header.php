@@ -53,7 +53,7 @@ if ($sticky = $navbar['sticky']) {
 
 ?>
 
-<?php echo get_view("extras/_search_panel") ?>
+<?php get_template_part("templates/extras/_search_panel") ?>
 
 <div<?= $this->attrs(['class' => $class], $attrs) ?>>
 

@@ -32,6 +32,8 @@ if (have_posts()) :
             echo '</div>';
         endif;
 
+        get_template_part("templates/extras/_facebook_comment");
+
     endwhile;
 
 endif;
