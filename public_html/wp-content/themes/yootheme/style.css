@@ -6,7 +6,7 @@
  * Author: YOOtheme
  * Author URI: https://yootheme.com
  */
-ol, ul {
+ul.product-categories {
     padding: 0;
     list-style: none;
 }

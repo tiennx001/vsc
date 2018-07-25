@@ -17,9 +17,9 @@
     </div>
   </div>
 
-  <div class="fb-page" data-href="https://www.facebook.com/morino868/" data-small-header="false"
+  <div class="fb-page" data-href="https://www.facebook.com/VietShoeCare.vn/" data-small-header="false"
        data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
     <blockquote cite="https://www.facebook.com/morino868/" class="fb-xfbml-parse-ignore"><a
-        href="https://www.facebook.com/morino868/">MORINO</a></blockquote>
+        href="https://www.facebook.com/morino868/">Vietshoecare.vn</a></blockquote>
   </div>
 </div>
