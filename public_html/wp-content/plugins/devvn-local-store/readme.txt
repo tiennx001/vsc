@@ -1,9 +1,9 @@
 === DevVN Local Store ===
 Contributors: levantoan
-Donate link: http://levantoan.com/donate/
+Donate link: https://levantoan.com/donate/
 Tags: google map api, local store, cua hang, search store
 Requires at least: 4.3
-Tested up to: 4.8
+Tested up to: 4.9.7
 Stable tag: 4.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0
@@ -15,7 +15,7 @@ DevVN Local Store help you add stores and search store on google maps.
 DevVN Local Store help you add stores and search store on google maps.
 
 [Live Demo](http://demo.devvn.com/plugins/find-a-store/)
-[Plugin Homepage](http://levantoan.com/find-a-local-store-by-devvn/)
+[Plugin Homepage](https://levantoan.com/find-a-local-store-by-devvn/)
 
 ### Used
 
@@ -32,7 +32,7 @@ You will find 'Stores' menu in your WordPress admin panel.
 
 USE: Copy shortcode [devvn_local_stores] to view
 
-For basic usage, you can also have a look at the [plugin homepage](http://levantoan.com/find-a-local-store-by-devvn/).
+For basic usage, you can also have a look at the [plugin homepage](https://levantoan.com/find-a-local-store-by-devvn/).
 
 == Frequently Asked Questions ==
 
@@ -44,11 +44,11 @@ For basic usage, you can also have a look at the [plugin homepage](http://levant
 
 = How to create a google maps api? =
 
-You can see my topic: [Creat google maps api](http://levantoan.com/create-google-maps-api/)
+You can see my topic: [Creat google maps api](https://levantoan.com/create-google-maps-api/)
 
 = How to get Latitude and Longitude? =
 
-Go to my tool: [Auto get Latitude and Longitude](http://levantoan.com/auto-get-latitude-longitude/)
+Go to my tool: [Auto get Latitude and Longitude](https://levantoan.com/auto-get-latitude-longitude/)
 
 = Làm thế nào để hiển thị Tiếng Việt? =
 
@@ -63,7 +63,20 @@ Hãy copy file devvn-localstore-vi.mo tại wp-content\plugins\devvn-local-store
 
 == Changelog ==
 
-For more information, see [Releases](http://levantoan.com/find-a-local-store-by-devvn/).
+For more information, see [Releases](https://levantoan.com/find-a-local-store-by-devvn/).
+
+= 1.0.8 =
+
+* Fix: set zoom in maps
+
+= 1.0.7.1 =
+
+* Update: Updated to internationalization
+
+= 1.0.7 =
+
+* Fix: Auto detect translate (Vietnamese)
+* Add: Add setting detail
 
 = 1.0.6 =
 

@@ -1,12 +1,12 @@
 <?php
 /*
 * Plugin Name: DevVN Local Store
-* Version: 1.0.6
+* Version: 1.0.8
 * Description: Find a Local Store by DevVN
 * Author: Le Van Toan
 * Author URI: http://levantoan.com
 * Plugin URI: http://levantoan.com/find-a-local-store-by-devvn
-* Text Domain: devvn-localstore
+* Text Domain: devvn-local-store
 * Domain Path: /languages
 * License: GPLv3
 * License URI: http://www.gnu.org/licenses/gpl-3.0
@@ -37,7 +37,7 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
     {
         protected static $instance;
 
-        public $_version = '1.0.6';
+        public $_version = '1.0.8';
         public $_optionName = 'dvls_options';
         public $_optionGroup = 'dvls-options-group';
         public $_defaultOptions = array(
@@ -93,7 +93,7 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
             add_filter( 'manage_edit-local-store_columns', array($this,'dvls_localstore_edit_orders_columns') ) ;
             add_action( 'manage_local-store_posts_custom_column', array($this,'dvls_localstore_manage_orders_columns'), 10, 2 );
 
-            add_action( 'plugins_loaded', array($this,'dvls_load_textdomain') );
+            $this->dvls_load_textdomain();
 
             //remove metabox bawpvc plugin
             add_action('add_meta_boxes_local-store', array($this, 'remove_taxonomies_metaboxes'), 999);
@@ -144,7 +144,7 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
 
         public function add_action_links( $links, $file ) {
             if ( strpos( $file, 'devvn-local-store.php' ) !== false ) {
-                $settings_link = '<a href="' . admin_url( 'edit.php?post_type=local-store&page=devvnls_settings' ) . '" title="View DevVN Local Store Settings">' . __( 'Settings', 'devvn-localstore' ) . '</a>';
+                $settings_link = '<a href="' . admin_url( 'edit.php?post_type=local-store&page=devvnls_settings' ) . '" title="View DevVN Local Store Settings">' . __( 'Settings', 'devvn-local-store' ) . '</a>';
                 array_unshift( $links, $settings_link );
             }
             return $links;
@@ -153,8 +153,8 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         function admin_menu() {
             add_submenu_page(
                 'edit.php?post_type=local-store',
-                __( 'Find a local store Setting', 'devvn-localstore' ),
-                __( 'Settings', 'devvn-localstore' ),
+                __( 'Find a local store Setting', 'devvn-local-store' ),
+                __( 'Settings', 'devvn-local-store' ),
                 'manage_options',
                 'devvnls_settings',
                 array($this,'dvls_flra_setting')
@@ -184,7 +184,7 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
                 'siteurl'       => home_url(),
                 'local_address' =>  $this->get_local_json(),
                 'maps_zoom'     =>  $dvls_settings['maps_zoom'],
-                'select_text'   =>  __('Select district','devvn-localstore'),
+                'select_text'   =>  __('Select district','devvn-local-store'),
                 'lat_default'   =>  $dvls_settings['lat_default'],
                 'lng_default'   =>  $dvls_settings['lng_default'],
                 'close_icon'    =>  DEVVN_LS_URL.'assets/images/close-btn.png',
@@ -219,7 +219,7 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         public function admin_footer_text( $text ) {
             $current_screen = get_current_screen();
             if ( isset( $current_screen->post_type ) && $current_screen->post_type == 'local-store' ) {
-                $text = sprintf( __( 'Developed by %sLê Văn Toản%s.', 'devvn-localstore' ), '<a href="http://levantoan.com" target="_blank"><strong>', '</strong></a>' );
+                $text = sprintf( __( 'Developed by %sLê Văn Toản%s.', 'devvn-local-store' ), '<a href="http://levantoan.com" target="_blank"><strong>', '</strong></a>' );
             }
             return $text;
         }
@@ -228,37 +228,37 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         {
 
             $labels = array(
-                'name' => _x('Stores', 'Post Type General Name', 'devvn-localstore'),
-                'singular_name' => _x('Store', 'Post Type Singular Name', 'devvn-localstore'),
-                'menu_name' => __('Stores', 'devvn-localstore'),
-                'name_admin_bar' => __('Store', 'devvn-localstore'),
-                'archives' => __('Stores', 'devvn-localstore'),
-                'attributes' => __('Store Attributes', 'devvn-localstore'),
-                'parent_item_colon' => __('Parent Store:', 'devvn-localstore'),
-                'all_items' => __('All Stores', 'devvn-localstore'),
-                'add_new_item' => __('Add New Store', 'devvn-localstore'),
-                'add_new' => __('Add New', 'devvn-localstore'),
-                'new_item' => __('New Store', 'devvn-localstore'),
-                'edit_item' => __('Edit Store', 'devvn-localstore'),
-                'update_item' => __('Update Store', 'devvn-localstore'),
-                'view_item' => __('View Store', 'devvn-localstore'),
-                'view_items' => __('View Stores', 'devvn-localstore'),
-                'search_items' => __('Search Store', 'devvn-localstore'),
-                'not_found' => __('Not found', 'devvn-localstore'),
-                'not_found_in_trash' => __('Not found in Trash', 'devvn-localstore'),
-                'featured_image' => __('Featured Image', 'devvn-localstore'),
-                'set_featured_image' => __('Set featured image', 'devvn-localstore'),
-                'remove_featured_image' => __('Remove featured image', 'devvn-localstore'),
-                'use_featured_image' => __('Use as featured image', 'devvn-localstore'),
-                'insert_into_item' => __('Insert into item', 'devvn-localstore'),
-                'uploaded_to_this_item' => __('Uploaded to this item', 'devvn-localstore'),
-                'items_list' => __('Items list', 'devvn-localstore'),
-                'items_list_navigation' => __('Items list navigation', 'devvn-localstore'),
-                'filter_items_list' => __('Filter items list', 'devvn-localstore'),
+                'name' => _x('Stores', 'Post Type General Name', 'devvn-local-store'),
+                'singular_name' => _x('Store', 'Post Type Singular Name', 'devvn-local-store'),
+                'menu_name' => __('Stores', 'devvn-local-store'),
+                'name_admin_bar' => __('Store', 'devvn-local-store'),
+                'archives' => __('Stores', 'devvn-local-store'),
+                'attributes' => __('Store Attributes', 'devvn-local-store'),
+                'parent_item_colon' => __('Parent Store:', 'devvn-local-store'),
+                'all_items' => __('All Stores', 'devvn-local-store'),
+                'add_new_item' => __('Add New Store', 'devvn-local-store'),
+                'add_new' => __('Add New', 'devvn-local-store'),
+                'new_item' => __('New Store', 'devvn-local-store'),
+                'edit_item' => __('Edit Store', 'devvn-local-store'),
+                'update_item' => __('Update Store', 'devvn-local-store'),
+                'view_item' => __('View Store', 'devvn-local-store'),
+                'view_items' => __('View Stores', 'devvn-local-store'),
+                'search_items' => __('Search Store', 'devvn-local-store'),
+                'not_found' => __('Not found', 'devvn-local-store'),
+                'not_found_in_trash' => __('Not found in Trash', 'devvn-local-store'),
+                'featured_image' => __('Featured Image', 'devvn-local-store'),
+                'set_featured_image' => __('Set featured image', 'devvn-local-store'),
+                'remove_featured_image' => __('Remove featured image', 'devvn-local-store'),
+                'use_featured_image' => __('Use as featured image', 'devvn-local-store'),
+                'insert_into_item' => __('Insert into item', 'devvn-local-store'),
+                'uploaded_to_this_item' => __('Uploaded to this item', 'devvn-local-store'),
+                'items_list' => __('Items list', 'devvn-local-store'),
+                'items_list_navigation' => __('Items list navigation', 'devvn-local-store'),
+                'filter_items_list' => __('Filter items list', 'devvn-local-store'),
             );
             $args = array(
-                'label' => __('Store', 'devvn-localstore'),
-                'description' => __('Find a local store', 'devvn-localstore'),
+                'label' => __('Store', 'devvn-local-store'),
+                'description' => __('Find a local store', 'devvn-local-store'),
                 'labels' => $labels,
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail',),
                 'taxonomies' => array('local_category'),
@@ -283,26 +283,26 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         {
 
             $labels = array(
-                'name' => _x('Local Address', 'Taxonomy General Name', 'devvn-localstore'),
-                'singular_name' => _x('Local Address', 'Taxonomy Singular Name', 'devvn-localstore'),
-                'menu_name' => __('Local Address', 'devvn-localstore'),
-                'all_items' => __('Local Address', 'devvn-localstore'),
-                'parent_item' => __('Parent Item', 'devvn-localstore'),
-                'parent_item_colon' => __('Parent Item:', 'devvn-localstore'),
-                'new_item_name' => __('New Item Name', 'devvn-localstore'),
-                'add_new_item' => __('Add New Item', 'devvn-localstore'),
-                'edit_item' => __('Edit Item', 'devvn-localstore'),
-                'update_item' => __('Update Item', 'devvn-localstore'),
-                'view_item' => __('View Item', 'devvn-localstore'),
-                'separate_items_with_commas' => __('Separate items with commas', 'devvn-localstore'),
-                'add_or_remove_items' => __('Add or remove items', 'devvn-localstore'),
-                'choose_from_most_used' => __('Choose from the most used', 'devvn-localstore'),
-                'popular_items' => __('Popular Items', 'devvn-localstore'),
-                'search_items' => __('Search Items', 'devvn-localstore'),
-                'not_found' => __('Not Found', 'devvn-localstore'),
-                'no_terms' => __('No items', 'devvn-localstore'),
-                'items_list' => __('Items list', 'devvn-localstore'),
-                'items_list_navigation' => __('Items list navigation', 'devvn-localstore'),
+                'name' => _x('Local Address', 'Taxonomy General Name', 'devvn-local-store'),
+                'singular_name' => _x('Local Address', 'Taxonomy Singular Name', 'devvn-local-store'),
+                'menu_name' => __('Local Address', 'devvn-local-store'),
+                'all_items' => __('Local Address', 'devvn-local-store'),
+                'parent_item' => __('Parent Item', 'devvn-local-store'),
+                'parent_item_colon' => __('Parent Item:', 'devvn-local-store'),
+                'new_item_name' => __('New Item Name', 'devvn-local-store'),
+                'add_new_item' => __('Add New Item', 'devvn-local-store'),
+                'edit_item' => __('Edit Item', 'devvn-local-store'),
+                'update_item' => __('Update Item', 'devvn-local-store'),
+                'view_item' => __('View Item', 'devvn-local-store'),
+                'separate_items_with_commas' => __('Separate items with commas', 'devvn-local-store'),
+                'add_or_remove_items' => __('Add or remove items', 'devvn-local-store'),
+                'choose_from_most_used' => __('Choose from the most used', 'devvn-local-store'),
+                'popular_items' => __('Popular Items', 'devvn-local-store'),
+                'search_items' => __('Search Items', 'devvn-local-store'),
+                'not_found' => __('Not Found', 'devvn-local-store'),
+                'no_terms' => __('No items', 'devvn-local-store'),
+                'items_list' => __('Items list', 'devvn-local-store'),
+                'items_list_navigation' => __('Items list navigation', 'devvn-local-store'),
             );
             $args = array(
                 'labels' => $labels,
@@ -326,7 +326,7 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         function local_store_meta_box() {
             add_meta_box(
                 'devvn_local_store_meta',
-                __( 'Store information', 'devvn-localstore' ),
+                __( 'Store information', 'devvn-local-store' ),
                 array($this,'local_store_meta_box_callback'),
                 'local-store',
                 'after_title',
@@ -603,10 +603,10 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         function dvls_localstore_edit_orders_columns( $columns ) {
             $columns = array(
                 'cb' 			=> '<input type="checkbox" />',
-                'title' 		=> __( 'Name','devvn-localstore' ),
-                'address'       =>  __('Address','devvn-localstore'),
-                'open'          =>  __('Open','devvn-localstore'),
-                'thumbnail'     =>  __('Thumbnail','devvn-localstore'),
+                'title' 		=> __( 'Name','devvn-local-store' ),
+                'address'       =>  __('Address','devvn-local-store'),
+                'open'          =>  __('Open','devvn-local-store'),
+                'thumbnail'     =>  __('Thumbnail','devvn-local-store'),
                 'date'          => __('Date','devvn')
             );
             return $columns;
@@ -639,15 +639,15 @@ if ( !class_exists( 'DevVN_Local_Store_Class' ) ) {
         }
 
         function dvls_load_textdomain() {
-            //load_plugin_textdomain( 'devvn-localstore', FALSE, basename( dirname( __FILE__ ) ) . '/languages' );
-			load_textdomain('devvn-localstore', dirname(__FILE__) . '/languages/devvn-localstore-' . get_locale() . '.mo');
+			load_textdomain('devvn-local-store', dirname(__FILE__) . '/languages/devvn-local-store-' . get_locale() . '.mo');
+            load_plugin_textdomain( 'devvn-local-store', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
         }
 
         function dvls_admin_notice() {
             global $dvls_settings;
             $current_screen = get_current_screen();
             if ( isset( $current_screen->post_type ) && $current_screen->post_type == 'local-store' && !$dvls_settings['maps_api'] ) {
-                echo '<div class="error"><p><strong>' . sprintf( __('You haven\'t set Google Maps Api yet. Please go to the <a href="%s">plugin admin page</a> to set.', 'devvn-localstore' ), admin_url( 'edit.php?post_type=local-store&page=devvnls_settings' ) ) . '</strong></p></div>';
+                echo '<div class="error"><p><strong>' . sprintf( __('You haven\'t set Google Maps Api yet. Please go to the <a href="%s">plugin admin page</a> to set.', 'devvn-local-store' ), admin_url( 'edit.php?post_type=local-store&page=devvnls_settings' ) ) . '</strong></p></div>';
             }
         }
 

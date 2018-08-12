@@ -172,6 +172,9 @@ function InfoBox(a){a=a||{},google.maps.OverlayView.apply(this,arguments),this.c
                         google.maps.event.removeListener(listener);
                     });
                     map.fitBounds(bounds);
+                    if(maps_data.length == 1){
+                        map.setZoom(parseInt(devvn_localstore_array.maps_zoom));
+                    }
                     $(".dvls_result_wrap").on('click','.dvls_result_item',function() {
                         var markerNum = $(this).data('id');
                         var latsvl = $(this).data('lat');

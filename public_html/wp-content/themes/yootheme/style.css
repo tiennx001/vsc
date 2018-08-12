@@ -148,13 +148,9 @@ ul.product-categories {
     padding-bottom: 10px;
 }
 
-.tm-sidebar {
-    margin-bottom: 400px !important;
-}
-
 @media (max-width: 767px) {
     .tm-toolbar {
-        height: 55px !important;
+        height: auto !important;
     }
 }
 
@@ -195,4 +191,18 @@ ul.product-categories {
     .search-panel .uk-search-default {
         width: 145px !important;
     }
+}
+
+@media (min-width: 960px) {
+    .tm-sidebar {
+        margin-bottom: 400px !important;
+    }
+}
+
+.uk-navbar-container {
+    padding: 10px 0 !important;
+}
+
+#bg-follow-us {
+   background: #f2f2f2;
 }

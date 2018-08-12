@@ -5,12 +5,12 @@
     <div class="row">
       <div class="col-sm-12 side_item">
         <p class="supports_tel">
-          Tư vấn Bán Hàng: <a href="tel:0936 028 891"><span>0936 028 891</span></a>
+          Tư vấn Bán Hàng: <a href="tel:0869176666"><span>0869.176.666</span></a>
 
         </p>
 
         <p class="supports_tel">
-          Tư vấn viên: <a href="tel:0936028891"><span>0936 028 891</span></a>
+          Tư vấn viên: <a href="tel:0869176666"><span>0869.176.666</span></a>
 
         </p>
       </div>

@@ -42,6 +42,8 @@ if ($site['layout'] == 'boxed') {
     </head>
     <body <?php body_class($theme->get('body_class')->all()) ?>>
 
+        <?php echo get_view("extras/_subiz_chatbox") ?>
+
         <?php if (strpos($theme->get('header.layout'), 'offcanvas') === 0 || $theme->get('mobile.animation') == 'offcanvas') : ?>
         <div class="uk-offcanvas-content">
         <?php endif ?>

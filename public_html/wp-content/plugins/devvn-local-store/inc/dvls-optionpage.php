@@ -3,7 +3,8 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 global $dvls_settings;
 ?>
 <div class="wrap">
-    <h1><?php _e('Find a local store settings','devvn-localstore')?></h1>
+    <h1><?php _e('Find a local store settings','devvn-local-store')?></h1>
+    <p><?php _e('Copy shortcode [devvn_local_stores] to view','devvn-local-store');?></p>
 
     <form method="post" action="options.php" novalidate="novalidate">
         <?php
@@ -12,22 +13,22 @@ global $dvls_settings;
         <table class="form-table">
             <tbody>
             <tr>
-                <th scope="row"><label for="maps_api"><?php _e('Google Maps API','devvn-localstore')?></label></th>
+                <th scope="row"><label for="maps_api"><?php _e('Google Maps API','devvn-local-store')?></label></th>
                 <td>
                     <input type="text" name="<?php echo $this->_optionName?>[maps_api]" id="maps_api" value="<?php echo esc_attr($dvls_settings['maps_api']);?>"/>
-                    <small class="dvls_description"><?php printf(__('%sHow to create a google maps api?%s','devvn-localstore'),'<a href="http://levantoan.com/create-google-maps-api/" target="_blank" title="">','</a>');?></small>
+                    <small class="dvls_description"><?php printf(__('%sHow to create a google maps api?%s','devvn-local-store'),'<a href="http://levantoan.com/create-google-maps-api/" target="_blank" title="">','</a>');?></small>
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="latlng_default"><?php _e('LatLng Default','devvn-localstore')?></label></th>
+                <th scope="row"><label for="latlng_default"><?php _e('LatLng Default','devvn-local-store')?></label></th>
                 <td>
                     <input type="text" placeholder="Lat default" name="<?php echo $this->_optionName?>[lat_default]" value="<?php echo esc_attr($dvls_settings['lat_default']);?>"/>
                     <input type="text" placeholder="Lng default" name="<?php echo $this->_optionName?>[lng_default]" value="<?php echo esc_attr($dvls_settings['lng_default']);?>"/>
-                    <small class="dvls_description"><?php printf(__('%sAuto Get Latitude and Longitude%s','devvn-localstore'),'<a href="http://levantoan.com/auto-get-latitude-longitude/" target="_blank" title="">','</a>');?></small>
+                    <small class="dvls_description"><?php printf(__('%sAuto Get Latitude and Longitude%s','devvn-local-store'),'<a href="http://levantoan.com/auto-get-latitude-longitude/" target="_blank" title="">','</a>');?></small>
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="latlng_default"><?php _e('Marker icon','devvn-localstore')?></label></th>
+                <th scope="row"><label for="latlng_default"><?php _e('Marker icon','devvn-local-store')?></label></th>
                 <td>
                     <?php
                     wp_enqueue_media();
@@ -44,44 +45,44 @@ global $dvls_settings;
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="maps_zoom"><?php _e('Maps Zoom','devvn-localstore')?></label></th>
+                <th scope="row"><label for="maps_zoom"><?php _e('Maps Zoom','devvn-local-store')?></label></th>
                 <td>
                     <input type="number" min="3" name="<?php echo $this->_optionName?>[maps_zoom]" id="maps_zoom" value="<?php echo intval($dvls_settings['maps_zoom']);?>"/>
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="radius"><?php _e('Radius <=','devvn-localstore')?></label></th>
+                <th scope="row"><label for="radius"><?php _e('Radius <=','devvn-local-store')?></label></th>
                 <td>
                     <input type="number" min="1" name="<?php echo $this->_optionName?>[radius]" id="radius" value="<?php echo intval($dvls_settings['radius']);?>"/> km
-                    <small class="dvls_description"><?php _e('For find a store near you','devvn-localstore');?></small>
+                    <small class="dvls_description"><?php _e('For find a store near you','devvn-local-store');?></small>
                 </td>
             </tr>
             <?php do_settings_fields('dvls-options-group', 'default'); ?>
             </tbody>
         </table>
-        <h2><?php _e('First load settings','devvn-localstore')?></h2>
+        <h2><?php _e('First load settings','devvn-local-store')?></h2>
         <table class="form-table">
             <tbody>
             <tr>
-                <th scope="row"><label for="number_post"><?php _e('Number store to first load','devvn-localstore')?></label></th>
+                <th scope="row"><label for="number_post"><?php _e('Number store to first load','devvn-local-store')?></label></th>
                 <td>
                     <input type="number" min="-1" name="<?php echo $this->_optionName?>[number_post]" id="number_post" value="<?php echo intval($dvls_settings['number_post']);?>"/>
-                    <small class="dvls_description"><?php _e('Set -1 to load all stores. Default 20','devvn-localstore');?></small>
+                    <small class="dvls_description"><?php _e('Set -1 to load all stores. Default 20','devvn-local-store');?></small>
                 </td>
             </tr>
             </tbody>
         </table>
-        <h2><?php _e('Labels','devvn-localstore')?></h2>
+        <h2><?php _e('Labels','devvn-local-store')?></h2>
         <table class="form-table">
             <tbody>
             <tr>
-                <th scope="row"><label for="disallow_labels"><?php _e('Disallow label','devvn-localstore')?></label></th>
+                <th scope="row"><label for="disallow_labels"><?php _e('Disallow label','devvn-local-store')?></label></th>
                 <td>
                     <input type="text" name="<?php echo $this->_optionName?>[disallow_labels]" id="disallow_labels" value="<?php echo esc_attr($dvls_settings['disallow_labels']);?>"/>
                 </td>
             </tr>
             <tr>
-                <th scope="row"><label for="get_directions"><?php _e('Get Directions','devvn-localstore')?></label></th>
+                <th scope="row"><label for="get_directions"><?php _e('Get Directions','devvn-local-store')?></label></th>
                 <td>
                     <input type="text" name="<?php echo $this->_optionName?>[get_directions]" id="get_directions" value="<?php echo esc_attr($dvls_settings['get_directions']);?>"/>
                 </td>

@@ -5,27 +5,27 @@ global $dvls_settings;
 <div class="dvls_maps_wrap">
     <div class="dvls_maps_container">
         <div class="dvls_maps_row dvls_maps_header">
-            <div class="dvls_maps_header_left"><?php _e('Find a local store','devvn-localstore')?></div>
+            <div class="dvls_maps_header_left"><?php _e('Find a local store','devvn-local-store')?></div>
             <div class="dvls_maps_header_right">
                 <form action="" method="get">
                     <div class="dvls_maps_3col">
                         <div class="dvls_maps_col">
                             <select name="city" id="dvls_city" data-value="">
-                                <option value="null"><?php _e('Select city','devvn-localstore');?></option>
+                                <option value="null"><?php _e('Select city','devvn-local-store');?></option>
                             </select>
                         </div>
                         <div class="dvls_maps_col">
                             <select name="district" id="dvls_district" data-value="">
-                                <option value="null"><?php _e('Select district','devvn-localstore');?></option>
+                                <option value="null"><?php _e('Select district','devvn-local-store');?></option>
                             </select>
                         </div>
                         <div class="dvls_maps_col">
                             <?php wp_nonce_field('dvls_nonce_action','dvls_nonce');?>
-                            <input value="<?php _e('Find store','devvn-localstore')?>" type="submit" class="dvls-submit"/>
+                            <input value="<?php _e('Find store','devvn-local-store')?>" type="submit" class="dvls-submit"/>
                         </div>
                     </div>
                     <div class="dvls_maps_col">
-                        <a href="javascript:void(0);" class="dvls_near_you" title="<?php printf(__('Find a store near you (<=%s km)','devvn-localstore'),$dvls_settings['radius']);?>"><?php printf(__('Find a store near you (<=%s km)','devvn-localstore'),$dvls_settings['radius']);?></a>
+                        <a href="javascript:void(0);" class="dvls_near_you" title="<?php printf(__('Find a store near you (<=%s km)','devvn-local-store'),$dvls_settings['radius']);?>"><?php printf(__('Find a store near you (<=%s km)','devvn-local-store'),$dvls_settings['radius']);?></a>
                     </div>
                 </form>
             </div>
@@ -34,9 +34,9 @@ global $dvls_settings;
             <div class="dvls_maps_sidebar">
                 <?php do_action('dvls_before_sidebar');?>
                 <div class="dvls_maps_sidebar_content">
-                    <div class="dvls_result_status"><?php _e('Found <strong></strong> store(s)','devvn-localstore');?></div>
+                    <div class="dvls_result_status"><?php _e('Found <strong></strong> store(s)','devvn-local-store');?></div>
                     <div class="dvls_result_wrap">
-                        <?php _e('Loading...','devvn-localstore');?>
+                        <?php _e('Loading...','devvn-local-store');?>
                     </div>
                 </div>
                 <?php do_action('dvls_after_sidebar');?>
